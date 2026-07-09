@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Capitar Ventures provides customized, founder-centric venture debt financing to high-growth Indian startups. Extend runway and accelerate growth without dilution.">
+  <title>Founder-First Venture Debt | Capitar Ventures</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Inline override to guarantee SVG animations load without stylesheet cache issues */
+
+    .card-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent-copper, #9E2A2B);
+      color: var(--accent-copper, #9E2A2B);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Refined deal-flow transaction ticker styling */
+    .ticker-banner {
+      background-color: var(--brand-navy, #0B1F3A);
+      color: rgba(255, 255, 255, 0.85);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.7rem;
+      padding: 0.45rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      letter-spacing: 0.08em;
+      z-index: 1001;
+      height: 28px;
+      transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, border-bottom 0.4s ease;
+    }
+
+    header.site-header.scrolled .ticker-banner {
+      height: 0;
+      padding: 0;
+      opacity: 0;
+      border-bottom-color: transparent;
+      pointer-events: none;
+    }
+
+    .ticker-content {
+      display: inline-block;
+      animation: scrollTicker 45s linear infinite;
+    }
+
+    .ticker-content span {
+      display: inline-block;
+      padding-right: 4rem;
+    }
+
+    .ticker-content span strong {
+      color: var(--accent-copper, #9E2A2B);
+      font-weight: 700;
+    }
+
+    @keyframes scrollTicker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* Fixed header padding overrides for ticker spacing */
+    header.site-header {
+      padding: 0 !important;
+    }
+
+    header.site-header .nav-container {
+      padding: 1.25rem 0;
+      transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    header.site-header.scrolled .nav-container {
+      padding: 0.8rem 0;
+    }
+
+    /* Microscopic background grid coordinate indicators */
+    .grid-coordinate-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .coord-dot {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      pointer-events: none;
+    }
+
+    .coord-dot::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--accent-copper, #9E2A2B);
+      opacity: 0.2;
+      animation: coordPulse 4s ease-in-out infinite;
+    }
+
+    .coord-dot span {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.6rem;
+      color: var(--text-secondary, #6B7280);
+      opacity: 0.45;
+      font-weight: 500;
+    }
+
+    .coord-dot.dot-2::before { animation-delay: 1.3s; }
+    .coord-dot.dot-3::before { animation-delay: 2.6s; }
+
+    @keyframes coordPulse {
+      0%, 100% { transform: scale(1); opacity: 0.25; }
+      50% { transform: scale(1.8); opacity: 0.85; }
+    }
+
+    .hero-curve-solid {
+      animation: drawSolidCurve 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    }
+
+    .hero-curve-dashed {
+      animation: flowDashes 15s linear infinite !important;
+      opacity: 0.85;
+    }
+
+    .hero-node {
+      opacity: 0;
+    }
+
+    .node-foundation {
+      animation: fadeInNode 0.3s forwards 0.2s !important;
+    }
+
+    .node-inflection {
+      animation: fadeInNode 0.4s forwards 1.0s !important;
+    }
+
+    .hero-ring {
+      opacity: 0;
+      animation: fadeInNode 0.4s forwards 1.0s, pulseRing 3s ease-in-out infinite 1.4s !important;
+    }
+
+    .node-debt {
+      animation: fadeInNode 0.4s forwards 1.2s !important;
+    }
+
+    .node-scale {
+      animation: fadeInNode 0.4s forwards 1.8s !important;
+    }
+
+    .hero-label {
+      opacity: 0;
+    }
+
+    .label-foundation {
+      animation: fadeInNode 0.5s forwards 0.5s !important;
+    }
+
+    .label-inflection {
+      animation: fadeInNode 0.5s forwards 1.3s !important;
+    }
+
+    .label-scale {
+      animation: fadeInNode 0.5s forwards 2.0s !important;
+    }
+
+    @keyframes drawSolidCurve {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes flowDashes {
+      from {
+        stroke-dashoffset: 0;
+      }
+      to {
+        stroke-dashoffset: -200;
+      }
+    }
+
+    @keyframes fadeInNode {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulseRing {
+      0% {
+        r: 9px;
+        opacity: 0.4;
+      }
+      50% {
+        r: 15px;
+        opacity: 0.05;
+      }
+      100% {
+        r: 9px;
+        opacity: 0.4;
+      }
+    }
+
+    /* Typographic Stack Selector Buttons */
+    .stack-selector-btn {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1.15rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--card-border, rgba(17, 24, 39, 0.06));
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-family);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: var(--transition-smooth);
+    }
+
+    .stack-selector-btn:hover {
+      background-color: rgba(17, 24, 39, 0.02);
+      border-color: rgba(17, 24, 39, 0.15);
+    }
+
+    .stack-selector-btn.active {
+      background-color: #FFFFFF;
+      border-color: var(--accent-copper);
+      box-shadow: 0 4px 15px rgba(158, 42, 43, 0.04);
+    }
+
+    .btn-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-secondary);
+      transition: var(--transition-smooth);
+    }
+
+    .stack-selector-btn.active .btn-indicator {
+      background-color: var(--accent-copper);
+      border-color: var(--accent-copper);
+      transform: scale(1.2);
+    }
+
+    /* Cursor Tracker crosshair styles */
+    .cursor-tracker-line-h,
+    .cursor-tracker-line-v {
+      position: absolute;
+      background-color: rgba(158, 42, 43, 0.04); /* Light red tint */
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .cursor-tracker-line-h {
+      height: 1px;
+      width: 100%;
+      left: 0;
+    }
+
+    .cursor-tracker-line-v {
+      width: 1px;
+      height: 100%;
+      top: 0;
+    }
+
+    .cursor-tracker-label {
+      position: absolute;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.55rem;
+      color: rgba(158, 42, 43, 0.5);
+      background-color: var(--bg-primary);
+      padding: 2px 4px;
+      border: 1px solid rgba(17, 24, 39, 0.03);
+      border-radius: 4px;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      letter-spacing: 0.05em;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header id="site-header" class="site-header">
+    <!-- Active Transaction Ticker Banner -->
+    <div class="ticker-banner">
+      <div class="ticker-content">
+        <span><strong>TRANSACTIONS:</strong> [CLOSED] ₹12.0 Cr — SaaS Debt (Bengaluru)</span>
+        <span>[UNDERWRITTEN] ₹8.5 Cr — EV Infra Credit (Pune)</span>
+        <span>[CLOSED] ₹15.0 Cr — Consumer Retail (Mumbai)</span>
+        <span>[APPROVED] ₹5.0 Cr — Logistics Tech (Delhi NCR)</span>
+        <span>[CLOSED] ₹20.0 Cr — CleanTech (Chennai)</span>
+        <!-- Duplicate loop -->
+        <span><strong>TRANSACTIONS:</strong> [CLOSED] ₹12.0 Cr — SaaS Debt (Bengaluru)</span>
+        <span>[UNDERWRITTEN] ₹8.5 Cr — EV Infra Credit (Pune)</span>
+        <span>[CLOSED] ₹15.0 Cr — Consumer Retail (Mumbai)</span>
+        <span>[APPROVED] ₹5.0 Cr — Logistics Tech (Delhi NCR)</span>
+        <span>[CLOSED] ₹20.0 Cr — CleanTech (Chennai)</span>
+      </div>
+    </div>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        CAPITAR <span>VENTURES</span>
+      </a>
+      <button id="hamburger" class="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="venture-debt.html" class="nav-link">Venture Debt</a>
+        <a href="approach.html" class="nav-link">Our Approach</a>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="founders.html" class="nav-link">For Founders</a>
+        <a href="investors.html" class="nav-link">For Investors</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="grid-bg-overlay"></div>
+    <div class="container">
+      <div class="grid-2">
+        <div class="hero-content fade-up-element revealed">
+          <span class="hero-tag">STRUCTURED DEBT FINANCING</span>
+          <h1 class="hero-title">Venture Debt Built Around Founders.</h1>
+          <p class="hero-subtitle">Capitar provides founder-first venture debt solutions that help high-growth companies scale without unnecessary equity dilution.</p>
+          <div class="btn-group">
+            <a href="founders.html" class="btn btn-primary">Founders — Raise Debt</a>
+            <a href="investors.html" class="btn btn-secondary">Investors — Fund II</a>
+          </div>
+        </div>
+        <div class="hero-visual fade-up-element revealed">
+          <!-- Premium Minimal Abstract SVG Composition -->
+          <svg width="450" height="350" viewBox="0 0 450 350" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Grid lines inside SVG -->
+            <line x1="50" y1="50" x2="400" y2="50" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            <line x1="50" y1="150" x2="400" y2="150" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            <line x1="50" y1="250" x2="400" y2="250" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            <line x1="100" y1="50" x2="100" y2="300" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            <line x1="225" y1="50" x2="225" y2="300" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            <line x1="350" y1="50" x2="350" y2="300" stroke="rgba(17, 24, 39, 0.04)" stroke-dasharray="4 4" />
+            
+            <!-- Growth curves -->
+            <path class="hero-curve-solid" stroke-dasharray="600" stroke-dashoffset="600" d="M 50 280 C 150 280, 180 200, 225 150 C 270 100, 320 60, 400 60" stroke="#0B1F3A" stroke-width="3" stroke-linecap="round" />
+            <path class="hero-curve-dashed" stroke-dasharray="6 4" stroke-dashoffset="0" d="M 50 280 C 150 280, 200 240, 225 210 C 250 180, 350 150, 400 150" stroke="#9E2A2B" stroke-width="2" stroke-linecap="round" />
+            
+            <!-- Intersecting points -->
+            <circle class="hero-node node-foundation" cx="50" cy="280" r="4" fill="#0B1F3A" opacity="0" />
+            <circle class="hero-node node-inflection" cx="225" cy="150" r="6" fill="#0B1F3A" opacity="0" />
+            <circle class="hero-ring" cx="225" cy="150" r="12" stroke="#0B1F3A" stroke-width="1.5" opacity="0" />
+            
+            <circle class="hero-node node-debt" cx="225" cy="210" r="5" fill="#9E2A2B" opacity="0" />
+            <circle class="hero-node node-scale" cx="400" cy="60" r="6" fill="#3B7A57" opacity="0" />
+            
+            <!-- Labels -->
+            <text class="hero-label label-foundation" x="60" y="265" font-family="Inter" font-size="10" fill="#6B7280" font-weight="500" opacity="0">Foundation</text>
+            <text class="hero-label label-inflection" x="238" y="145" font-family="Inter" font-size="10" fill="#0B1F3A" font-weight="600" opacity="0">Growth Inflection</text>
+            <text class="hero-label label-scale" x="340" y="50" font-family="Inter" font-size="10" fill="#3B7A57" font-weight="600" opacity="0">Scale Realized</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility Strip -->
+  <section class="credibility-strip">
+    <div class="container">
+      <div class="grid-4">
+        <div class="credibility-card">
+          <div class="credibility-num">AIF</div>
+          <div class="credibility-title">SEBI Registered</div>
+          <div class="credibility-desc">Category II AIF Fund</div>
+        </div>
+        <div class="credibility-card">
+          <div class="credibility-num">100+</div>
+          <div class="credibility-title">Combined Years</div>
+          <div class="credibility-desc">Underwriting Experience</div>
+        </div>
+        <div class="credibility-card">
+          <div class="credibility-num">Founder</div>
+          <div class="credibility-title">First Mindset</div>
+          <div class="credibility-desc">Financing Built on Trust</div>
+        </div>
+        <div class="credibility-card">
+          <div class="credibility-num">Custom</div>
+          <div class="credibility-title">Bespoke debt</div>
+          <div class="credibility-desc">Structured for Scale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="section-padding" style="background-color: #FFFFFF;">
+    <div class="container">
+      <div class="grid-2">
+        <div class="fade-up-element">
+          <span class="section-tag">WHAT WE DO</span>
+          <h2 class="section-title">Bridging Equity and Execution.</h2>
+          <p style="margin-bottom: 2rem;">Venture debt is a highly strategic financing mechanism for venture-backed growth companies. Instead of selling equity to fund operations, founders use structured debt to preserve ownership.</p>
+          
+          <!-- Typographic Stack Selector -->
+          <div class="stack-selector-group" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.05em; text-transform: uppercase;">Simulate Capital Allocation (₹10 Cr Round)</span>
+            <button class="stack-selector-btn active" data-ratio="0" data-saved="0.0" data-runway="0.0" data-value="0.00">
+              <span class="btn-indicator"></span>
+              <span>100% Dilutive Equity Round</span>
+            </button>
+            <button class="stack-selector-btn" data-ratio="30" data-saved="4.5" data-runway="7.5" data-value="2.25">
+              <span class="btn-indicator"></span>
+              <span>30% Capitar Debt Supplement</span>
+            </button>
+            <button class="stack-selector-btn" data-ratio="50" data-saved="7.5" data-runway="12.5" data-value="3.75">
+              <span class="btn-indicator"></span>
+              <span>50% Capitar Debt Supplement</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="fade-up-element" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+          <!-- Custom Interactive Blueprint Canvas -->
+          <div style="width: 100%; max-width: 440px; padding: 2.5rem; background-color: var(--bg-primary); border-radius: var(--border-radius-card); border: 1px solid var(--card-border); position: relative; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.015);">
+            <div class="grid-bg-overlay" style="opacity: 0.3;"></div>
+            
+            <h3 style="font-size: 1.15rem; margin-bottom: 1.75rem; font-weight: 600; text-align: center; letter-spacing: -0.01em; color: var(--brand-navy);">Capital Optimization Blueprint</h3>
+            
+            <!-- Graphic Stack Bars -->
+            <div style="height: 120px; display: flex; gap: 1.5rem; justify-content: center; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1.5rem; position: relative;">
+              
+              <!-- Equity Column -->
+              <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+                <div id="visualizer-bar-equity" style="width: 100%; background-color: var(--brand-navy); border-radius: 6px 6px 0 0; transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1); height: 100px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 0.85rem; font-weight: 600; flex-direction: column; text-align: center;">
+                  <span style="font-size: 0.65rem; opacity: 0.8; letter-spacing: 0.05em;">EQUITY</span>
+                  <span id="visualizer-text-equity" style="font-family: ui-monospace, monospace; font-size: 0.95rem; margin-top: 2px;">₹10.0 Cr</span>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; text-align: center; font-weight: 500;">Dilutive VC</span>
+              </div>
+              
+              <!-- Plus sign -->
+              <div id="visualizer-plus" style="font-size: 1.5rem; font-weight: 700; color: var(--accent-copper); position: absolute; left: 50%; transform: translateX(-50%) translateY(-50%); top: 40%; transition: opacity 0.3s ease; opacity: 0;">+</div>
+
+              <!-- Venture Debt Column -->
+              <div style="display: flex; flex-direction: column; align-items: center; width: 100px;">
+                <div id="visualizer-bar-debt" style="width: 100%; background-color: var(--accent-copper); border-radius: 6px 6px 0 0; transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1); height: 0px; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 0.85rem; font-weight: 600; flex-direction: column; text-align: center;">
+                  <span style="font-size: 0.65rem; opacity: 0.9; letter-spacing: 0.05em;">DEBT</span>
+                  <span id="visualizer-text-debt" style="font-family: ui-monospace, monospace; font-size: 0.95rem; margin-top: 2px;"></span>
+                </div>
+                <span style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.5rem; text-align: center; font-weight: 500;">Capitar Debt</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Outputs/Statistics -->
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-light); padding-bottom: 0.75rem;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">Founder Dilution Saved</span>
+                <span id="visualizer-out-saved" class="mono-label" style="font-size: 1.15rem; font-weight: 700; color: var(--accent-success);">0.0% Equity</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-light); padding-bottom: 0.75rem;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">Cash Runway Extended</span>
+                <span id="visualizer-out-runway" class="mono-label" style="font-size: 1.15rem; font-weight: 700; color: var(--brand-navy);">+0.0 Months</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 500;">Preserved Enterprise Value</span>
+                <span id="visualizer-out-value" class="mono-label" style="font-size: 1.15rem; font-weight: 700; color: var(--accent-copper);">₹0.00 Cr</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Venture Debt -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">WHY VENTURE DEBT</span>
+        <h2 class="section-title">Strategic capital designed for founders who value their equity.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card fade-up-element">
+          <span style="display: block; font-size: 2rem; color: var(--accent-copper); margin-bottom: 1.5rem;">01</span>
+          <h3 style="margin-bottom: 1rem;">Non-dilutive Growth</h3>
+          <p>Unlike equity which dilutes your ownership permanently, venture debt provides growth capital with nominal or zero dilution, letting you retain upside.</p>
+        </div>
+        <div class="card fade-up-element">
+          <span style="display: block; font-size: 2rem; color: var(--accent-copper); margin-bottom: 1.5rem;">02</span>
+          <h3 style="margin-bottom: 1rem;">Runway Extension</h3>
+          <p>Extend your financial runway by 6 to 12 months between rounds, ensuring you achieve key performance milestones before pricing your next equity raise.</p>
+        </div>
+        <div class="card fade-up-element">
+          <span style="display: block; font-size: 2rem; color: var(--accent-copper); margin-bottom: 1.5rem;">03</span>
+          <h3 style="margin-bottom: 1rem;">Capital Efficiency</h3>
+          <p>Lower the weighted average cost of capital. Debt is structured for specific operational catalysts, optimizing working capital dynamics.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 4rem;" class="fade-up-element">
+        <a href="venture-debt.html" class="btn btn-secondary">Explore Structured Debt Solutions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Capitar -->
+  <section class="section-padding" style="background-color: #FFFFFF; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">WHY CAPITAR</span>
+        <h2 class="section-title">Bespoke debt underwriting built for scale.</h2>
+      </div>
+      <div class="grid-3">
+        <!-- 6 Premium Feature Cards -->
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">1</span>
+            Underwriting Expertise
+          </h3>
+          <p style="font-size: 0.95rem;">100+ years of cumulative debt underwriting experience backed by rigorous, data-driven credit and environmental risk analysis.</p>
+        </div>
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">2</span>
+            Advisor Approach
+          </h3>
+          <p style="font-size: 0.95rem;">Forging and nurturing deep relationships with founders, offering board-level strategic counsel on corporate and capital structures.</p>
+        </div>
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">3</span>
+            Customized Solution
+          </h3>
+          <p style="font-size: 0.95rem;">Tailored credit facilities mapped to client founder's specific needs, with complete flexibility in structuring term sheets.</p>
+        </div>
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">4</span>
+            Global Experience
+          </h3>
+          <p style="font-size: 0.95rem;">Underwriting footprint spanning India and international frameworks, aligning operations with institutional credit practices.</p>
+        </div>
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">5</span>
+            Multi-Industry Exposure
+          </h3>
+          <p style="font-size: 0.95rem;">A proven track record evaluating and underwriting credit across diverse sectors including SaaS, EV, Logistics, and Consumer Retail.</p>
+        </div>
+        <div class="card fade-up-element">
+          <h3 style="margin-bottom: 1rem; font-size: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+            <span class="card-number-badge">6</span>
+            Quick Turnaround
+          </h3>
+          <p style="font-size: 0.95rem;">Rigorous diligence paired with a direct partner model and flat organization that enables rapid commitments and approvals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header" style="margin-left: auto; margin-right: auto; text-align: center;">
+        <span class="section-tag">OUR PROCESS</span>
+        <h2 class="section-title">From initial engagement to capital in weeks.</h2>
+        <p style="margin: 0 auto; max-width: 550px;">A structured underwriting timeline focused on transparency, rapid evaluation, and operational alignment.</p>
+      </div>
+      
+      <div class="process-timeline fade-up-element">
+        <div class="process-step">
+          <div class="process-icon">01</div>
+          <h4>Conversation</h4>
+          <p>Initial alignment call to understand your growth objectives, financial model, and financing requirements.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">02</div>
+          <h4>Evaluation</h4>
+          <p>Deep-dive review of financial statements, unit economics, equity backing, and historical performance metrics.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">03</div>
+          <h4>Structuring</h4>
+          <p>Drafting a customized term sheet with optimized ticket sizes, covenants, repayment schedule, and warrants.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-icon">04</div>
+          <h4>Funding</h4>
+          <p>Completion of legal documentation, final compliance clearances, and disbursement of growth funds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Preview -->
+  <section class="section-padding" style="background-color: #FFFFFF; border-top: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">LEADERSHIP</span>
+        <h2 class="section-title">Led by experienced underwriting and finance professionals.</h2>
+      </div>
+      
+      <!-- Preview Grid -->
+      <div class="grid-2" style="margin-bottom: 4rem;">
+        <div class="card team-card fade-up-element" style="box-shadow: none; border-color: var(--border-light);">
+          <div class="team-portrait-wrapper">
+            <!-- Custom Styled SVG Portrait Placeholder -->
+            <svg width="150" height="180" viewBox="0 0 150 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="150" height="180" fill="#0B1F3A" />
+              <path d="M75 45 C88.8 45 100 56.2 100 70 C100 83.8 88.8 95 75 95 C61.2 95 50 83.8 50 70 C50 56.2 61.2 45 75 45 Z" fill="#B8894F" opacity="0.3"/>
+              <path d="M25 155 C25 125 45 110 75 110 C105 110 125 125 125 155 Z" fill="#B8894F" opacity="0.3"/>
+              <text x="75" y="168" font-family="Inter" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600" opacity="0.4">RM</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Rahul Mahipal</h3>
+            <div class="team-role">Co-Founder & Managing Partner</div>
+            <p class="team-bio">Former executive at Edelweiss Group, Standard Chartered, and ING Vysya Bank. Chartered Accountant and veteran angel investor in Indian fintech and enterprise tech.</p>
+            <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+        
+        <div class="card team-card fade-up-element" style="box-shadow: none; border-color: var(--border-light);">
+          <div class="team-portrait-wrapper">
+            <svg width="150" height="180" viewBox="0 0 150 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="150" height="180" fill="#0B1F3A" />
+              <path d="M75 45 C88.8 45 100 56.2 100 70 C100 83.8 88.8 95 75 95 C61.2 95 50 83.8 50 70 C50 56.2 61.2 45 75 45 Z" fill="#B8894F" opacity="0.3"/>
+              <path d="M25 155 C25 125 45 110 75 110 C105 110 125 125 125 155 Z" fill="#B8894F" opacity="0.3"/>
+              <text x="75" y="168" font-family="Inter" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600" opacity="0.4">BK</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Bikramjit Singh Kalra</h3>
+            <div class="team-role">Managing Partner & Director</div>
+            <p class="team-bio">Over 19 years of governance and executive operational leadership across corporate finance, brokerage services, securities, and early-stage scaling.</p>
+            <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center;" class="fade-up-element">
+        <a href="team.html" class="btn btn-secondary">Meet Our Investment Committee</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark CTA Section -->
+  <section class="cta-section">
+    <div class="container fade-up-element">
+      <h2>Let's Build Your Next Stage of Growth.</h2>
+      <p>Speak to our underwriting team today to see how customized debt fits your capital structure.</p>
+      <a href="contact.html" class="btn btn-accent">Talk to Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">CAPITAR <span>VENTURES</span></div>
+          <p class="footer-desc">Premium structured debt financing for high-growth startups and emerging companies in India.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Founders</h5>
+          <ul class="footer-links">
+            <li><a href="venture-debt.html">Venture Debt Overview</a></li>
+            <li><a href="founders.html">Founder Journey</a></li>
+            <li><a href="contact.html">Apply for Capital</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Investors</h5>
+          <ul class="footer-links">
+            <li><a href="investors.html">AIF Fund Overview</a></li>
+            <li><a href="investors.html#governance">Governance & Risk</a></li>
+            <li><a href="investors.html#compliance">Compliance disclosures</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-links">
+            <li><a href="contact.html">Office Location</a></li>
+            <li><a href="mailto:corporate@capitar.in">corporate@capitar.in</a></li>
+            <li><a href="tel:+912246004224">+91 22 4600 4224</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-sebi-text">
+          Disclaimer: Capitar Ventures India Debt Fund - I (Scheme Code: AIF08099) is a SEBI-registered Category II Alternative Investment Fund (AIF) under registration number IN/AIF2/22-23/1134. Managed by Capitar Investment Advisors LLP. Registered Office: B-306, 403, M.M.GS Road, Near L&T Gate, Off Marol Cross Road, M.I.D.C, Andheri East, Mumbai, Maharashtra - 400069, India. Underwriting terms and approvals are subject to evaluation and discretionary credit parameters.
+        </div>
+        <div class="footer-meta">
+          <div>&copy; 2026 Capitar Ventures. All rights reserved.</div>
+          <div class="footer-socials">
+            <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Timing-safe animation controller for stack selectors and cursor trackers
+    (function() {
+      const initInteractiveFeatures = () => {
+        // 1. Stack morph selector logic
+        const buttons = document.querySelectorAll('.stack-selector-btn');
+        const barEquity = document.getElementById('visualizer-bar-equity');
+        const barDebt = document.getElementById('visualizer-bar-debt');
+        const textEquity = document.getElementById('visualizer-text-equity');
+        const textDebt = document.getElementById('visualizer-text-debt');
+        const plusSign = document.getElementById('visualizer-plus');
+        const outSaved = document.getElementById('visualizer-out-saved');
+        const outRunway = document.getElementById('visualizer-out-runway');
+        const outValue = document.getElementById('visualizer-out-value');
+
+        if (buttons.length > 0 && barEquity && barDebt) {
+          // Counter roll numbers animation
+          const animateValue = (obj, start, end, duration, suffix = '') => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+              if (!startTimestamp) startTimestamp = timestamp;
+              const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+              const val = (progress * (end - start) + start).toFixed(1);
+              obj.innerText = val + suffix;
+              if (progress < 1) {
+                window.requestAnimationFrame(step);
+              }
+            };
+            window.requestAnimationFrame(step);
+          };
+
+          const animateCurrency = (obj, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+              if (!startTimestamp) startTimestamp = timestamp;
+              const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+              const val = (progress * (end - start) + start).toFixed(2);
+              obj.innerText = `₹${val} Cr`;
+              if (progress < 1) {
+                window.requestAnimationFrame(step);
+              }
+            };
+            window.requestAnimationFrame(step);
+          };
+
+          let currentSaved = 0.0;
+          let currentRunway = 0.0;
+          let currentValue = 0.00;
+
+          buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+              buttons.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+
+              const ratio = parseFloat(btn.getAttribute('data-ratio')); // 0, 30, 50
+              const saved = parseFloat(btn.getAttribute('data-saved'));
+              const runway = parseFloat(btn.getAttribute('data-runway'));
+              const value = parseFloat(btn.getAttribute('data-value'));
+
+              // Column Heights
+              const maxBarHeight = 100;
+              const debtHeight = ratio; // 0px, 30px, 50px
+              const equityHeight = maxBarHeight - debtHeight; // 100px, 70px, 50px
+
+              barEquity.style.height = `${equityHeight}px`;
+              barDebt.style.height = `${debtHeight}px`;
+
+              // Update column text
+              const totalVal = 10.0; // ₹10 Cr
+              const debtVal = totalVal * (ratio / 100);
+              const equityVal = totalVal - debtVal;
+
+              textEquity.innerText = `₹${equityVal.toFixed(1)} Cr`;
+              
+              if (ratio > 0) {
+                textDebt.innerText = `₹${debtVal.toFixed(1)} Cr`;
+                textDebt.parentElement.style.opacity = '1';
+                if (plusSign) plusSign.style.opacity = '1';
+              } else {
+                textDebt.innerText = '';
+                textDebt.parentElement.style.opacity = '0.2';
+                if (plusSign) plusSign.style.opacity = '0';
+              }
+
+              // Animate readouts
+              animateValue(outSaved, currentSaved, saved, 400, '% Equity');
+              animateValue(outRunway, currentRunway, runway, 400, ' Months');
+              animateCurrency(outValue, currentValue, value, 400);
+
+              // Save state
+              currentSaved = saved;
+              currentRunway = runway;
+              currentValue = value;
+            });
+          });
+        }
+      };
+
+      if (document.readyState !== 'loading') {
+        initInteractiveFeatures();
+      } else {
+        document.addEventListener('DOMContentLoaded', initInteractiveFeatures);
+      }
+    })();
+  </script>
+</body>
+</html>

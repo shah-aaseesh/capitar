@@ -1,0 +1,16 @@
+{
+  "name": "capitar-ventures-website",
+  "version": "1.0.0",
+  "description": "Premium structured debt financing website for Capitar Ventures",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y http-server -p 3000 -c-1"
+  },
+  "keywords": [
+    "venture-debt",
+    "capitar-ventures",
+    "private-credit"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}
