@@ -1433,8 +1433,18 @@ footer.site-footer {
   }
   
   /* Mobile Navigation Menu */
+  .logo {
+    margin-left: 0.5rem;
+  }
+
+  .logo-img {
+    height: 30px; /* Compact mobile logo scale */
+  }
+
   .hamburger {
     display: block;
+    margin-right: 0.5rem;
+    padding: 8px;
   }
   
   .nav-menu {
