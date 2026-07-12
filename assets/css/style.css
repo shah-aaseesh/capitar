@@ -2499,47 +2499,4 @@ body.page-fade-out {
   }
 
 
-/* Deal-flow Transaction Ticker Component */
-.ticker-banner {
-  background-color: var(--brand-navy, #0B1F3A);
-  color: rgba(255, 255, 255, 0.85);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.7rem;
-  padding: 0.45rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  letter-spacing: 0.08em;
-  z-index: 1001;
-  height: 28px;
-  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, border-bottom 0.4s ease;
-}
 
-header.site-header.scrolled .ticker-banner {
-  height: 0;
-  padding: 0;
-  opacity: 0;
-  border-bottom-color: transparent;
-  pointer-events: none;
-}
-
-.ticker-content {
-  display: inline-block;
-  animation: scrollTicker 45s linear infinite;
-}
-
-.ticker-content span {
-  display: inline-block;
-  padding-right: 4rem;
-}
-
-.ticker-content span strong {
-  color: var(--accent-copper, #9E2A2B);
-  font-weight: 700;
-}
-
-@keyframes scrollTicker {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
