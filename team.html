@@ -15,7 +15,7 @@
   <header id="site-header" class="site-header">
     <div class="container nav-container">
       <a href="index.html" class="logo">
-        CAPITAR <span>VENTURES</span>
+        <img src="Capitar-Logo.png" alt="Capitar Ventures Logo" class="logo-img">
       </a>
       <button id="hamburger" class="hamburger" aria-label="Toggle Navigation" aria-expanded="false">
         <span></span>
@@ -39,6 +39,7 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="grid-bg-overlay"></div>
+    <div class="glow-blob" style="top: -100px; right: -50px; opacity: 0.8;"></div>
     <div class="container">
       <div class="hero-content fade-up-element revealed" style="max-width: 800px; margin: 0 auto; text-align: center;">
         <span class="hero-tag">INVESTMENT COMMITTEE</span>
@@ -49,7 +50,8 @@
   </section>
 
   <!-- Team Grid Section -->
-  <section class="section-padding" style="background-color: #FFFFFF;">
+  <section class="section-padding" style="background-color: #FFFFFF; overflow: hidden; position: relative;">
+    <div class="glow-blob" style="bottom: 50px; left: -150px; opacity: 0.6;"></div>
     <div class="container">
       
       <div class="team-grid">
@@ -67,7 +69,11 @@
           <div class="team-info">
             <h3 class="team-name">Rahul Mahipal</h3>
             <div class="team-role">Co-Founder & Managing Partner</div>
-            <p class="team-bio">Rahul is a Chartered Accountant and veteran financier with a rich history in commercial banking and credit operations. Prior to co-founding Capitar, he held senior lending and advisory roles at Edelweiss Group (ECL Finance), Standard Chartered Bank, and ING Vysya Bank. He is an active angel investor in the Indian tech ecosystem, helping startups structure growth debt pipeline models.</p>
+          </div>
+          <div class="team-overlay">
+            <h3>Rahul Mahipal</h3>
+            <div class="team-role">Co-Founder & Managing Partner</div>
+            <p class="team-bio">Rahul is a Chartered Accountant and veteran financier with a rich history in commercial banking and credit operations. Prior to co-founding Capitar, he held senior lending and advisory roles at Edelweiss Group, Standard Chartered, and ING Vysya.</p>
             <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn Profile
@@ -86,9 +92,13 @@
             </svg>
           </div>
           <div class="team-info">
-            <h3 class="team-name">Bikramjit Singh Kalra</h3>
+            <h3 class="team-name">Bikramjit Singh</h3>
             <div class="team-role">Managing Partner & Director</div>
-            <p class="team-bio">Bikramjit brings over 19 years of governance, board leadership, and corporate management experience across financial markets and securities. He has served as partner and designated director across several brokerages, asset advisories, and capital firms (including Consortium Securities and Omega Finhold), managing risk mitigation structures.</p>
+          </div>
+          <div class="team-overlay">
+            <h3>Bikramjit Singh Kalra</h3>
+            <div class="team-role">Managing Partner & Director</div>
+            <p class="team-bio">Bikramjit brings over 19 years of governance, board leadership, and corporate management experience across financial markets and securities. He has served as designated director across brokerages and asset advisories, managing risk mitigation.</p>
             <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn Profile
@@ -108,6 +118,10 @@
           </div>
           <div class="team-info">
             <h3 class="team-name">Anjali Sharma</h3>
+            <div class="team-role">Chief Risk Officer</div>
+          </div>
+          <div class="team-overlay">
+            <h3>Anjali Sharma</h3>
             <div class="team-role">Chief Risk Officer</div>
             <p class="team-bio">Former Director of Credit Risk at Alteria Capital and Senior Underwriter at ICICI Bank. Anjali oversees credit underwriting parameters, structural stress tests, and compliance monitoring frameworks for all new issuances.</p>
             <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
@@ -130,7 +144,36 @@
           <div class="team-info">
             <h3 class="team-name">Devendra Gupta</h3>
             <div class="team-role">Head of Portfolio Operations</div>
+          </div>
+          <div class="team-overlay">
+            <h3>Devendra Gupta</h3>
+            <div class="team-role">Head of Portfolio Operations</div>
             <p class="team-bio">Former VP of Finance at a growth-stage enterprise SaaS startup and Senior Associate in Risk Assurance at PwC. Devendra manages institutional disbursements, compliance monitoring, and secondary commercial banking alignments.</p>
+            <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+
+        <!-- Priya Nair -->
+        <div class="card team-card fade-up-element" style="box-shadow: none; border-color: var(--border-light);">
+          <div class="team-portrait-wrapper">
+            <svg width="150" height="180" viewBox="0 0 150 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="150" height="180" fill="#0B1F3A" />
+              <path d="M75 45 C88.8 45 100 56.2 100 70 C100 83.8 88.8 95 75 95 C61.2 95 50 83.8 50 70 C50 56.2 61.2 45 75 45 Z" fill="#B8894F" opacity="0.3"/>
+              <path d="M25 155 C25 125 45 110 75 110 C105 110 125 125 125 155 Z" fill="#B8894F" opacity="0.3"/>
+              <text x="75" y="168" font-family="Inter" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600" opacity="0.4">PN</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">Priya Nair</h3>
+            <div class="team-role">VP of Investments</div>
+          </div>
+          <div class="team-overlay">
+            <h3>Priya Nair</h3>
+            <div class="team-role">VP of Investments</div>
+            <p class="team-bio">Former Investment Associate at Sequoia Capital India and credit analyst at HSBC. Priya leads deal-flow pipeline origination and preliminary underwriting assessments.</p>
             <a href="https://linkedin.com" class="team-linkedin" target="_blank" rel="noopener">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               LinkedIn Profile
@@ -156,7 +199,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="footer-logo">CAPITAR <span>VENTURES</span></div>
+          <div class="footer-logo">
+            <img src="Capitar-Logo.png" alt="Capitar Ventures Logo" class="footer-logo-img">
+          </div>
           <p class="footer-desc">Premium structured debt financing for high-growth startups and emerging companies in India.</p>
         </div>
         <div class="footer-col">
