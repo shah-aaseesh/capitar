@@ -1486,7 +1486,7 @@ footer.site-footer {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-smooth);
-    z-index: 1020;
+    z-index: 999;
   }
   
   .nav-overlay.active {
